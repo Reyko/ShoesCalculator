@@ -18,6 +18,10 @@ Shoes.app :title => "My Amazing Calculator", :width => 300, :height => 300 do
       button "C" do
         del_expression
       end
+
+      button "Power^2" do
+        pow_expression
+      end
     end
     
   end
@@ -44,7 +48,13 @@ Shoes.app :title => "My Amazing Calculator", :width => 300, :height => 300 do
     @input = eval(@input)
     @input = nil
     @output.text = @input
-    
+
+  end
+
+  def pow_expression
+    @pow = eval(@input)**2
+    @input = @pow.to_s
+    @output.text = @input
 
   end
   
