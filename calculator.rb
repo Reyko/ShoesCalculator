@@ -1,11 +1,11 @@
-Shoes.app :title => "My Amazing Calculator", :width => 240, :height => 240 do
-   background "#F3F".."#F90"
-  stack :margin => 20 do
+Shoes.app :title => "My Amazing Calculator", :width => 300, :height => 300 do
+   background "#000"
+   stack :margin => 80 do
     @output = edit_line
-    background "#F3F".."#F90"
+    background "#000"
 
-    flow do
-      %w(0 1 2 3 4 5 6 7 8 9 + / * -).each do |op|      
+     flow do
+      %w(7 8 9 4 5 6 1 2 3 + 0 / * -).each do |op|      
         button op do         
           append op
         end
