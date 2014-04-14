@@ -22,6 +22,10 @@ Shoes.app :title => "My Amazing Calculator", :width => 300, :height => 300 do
       button "Power^2" do
         pow_expression
       end
+
+      button "√" do
+        square_expression
+      end
     end
     
   end
@@ -54,6 +58,12 @@ Shoes.app :title => "My Amazing Calculator", :width => 300, :height => 300 do
   def pow_expression
     @pow = eval(@input)**2
     @input = @pow.to_s
+    @output.text = @input
+  end
+
+  def square_expression
+    @square = Math.sqrt(eval(@input))
+    @input = @square
     @output.text = @input
 
   end
