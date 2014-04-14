@@ -26,6 +26,10 @@ Shoes.app :title => "My Amazing Calculator", :width => 300, :height => 300 do
       button "√" do
         square_expression
       end
+
+      button "log" do
+          log_expression
+      end
     end
     
   end
@@ -65,7 +69,13 @@ Shoes.app :title => "My Amazing Calculator", :width => 300, :height => 300 do
     @square = Math.sqrt(eval(@input))
     @input = @square
     @output.text = @input
-
   end
+
+  def log_expression
+    @square = Math.log2(eval(@input))
+    @input = @square
+    @output.text = @input
+  end
+
   
 end
