@@ -4,6 +4,7 @@ Shoes.app :title => "My Amazing Calculator", :width => 300, :height => 300 do
     @output = edit_line
     background "#000"
 
+
      flow do
       %w(7 8 9 4 5 6 1 2 3 + 0 / * -).each do |op|      
         button op do         
@@ -16,7 +17,6 @@ Shoes.app :title => "My Amazing Calculator", :width => 300, :height => 300 do
       @special.each do |item|
 
           button item do
-
               case item
                 when "="
                   eval_expression
@@ -25,7 +25,7 @@ Shoes.app :title => "My Amazing Calculator", :width => 300, :height => 300 do
                 when "x\u00B2" 
                   pow_expression
                 when "√" 
-                  square_expression
+                  square_root_expression
                 when "log" 
                   log_expression
               end
@@ -42,23 +42,36 @@ Shoes.app :title => "My Amazing Calculator", :width => 300, :height => 300 do
     if @input.nil?
       @input = ""
     end
-    @input += s
+    @input += s + " "
     @output.text = @input
   end
   
   # Evaluate the input we've got so far
   #
   def eval_expression
+
+ # Shoes.show_log
+
+    @numbers = @input.split(" ")
+
+
+    @decimal = @numbers.pop.to_f
+
+
+    @numbers.push(@decimal.to_s)
+    
+    @input = @numbers.join
+
+
     @input = eval(@input).to_s
+
     @output.text = @input
   end
 
   def del_expression
-   
     @input = eval(@input)
     @input = nil
     @output.text = @input
-
   end
 
   def pow_expression
@@ -67,7 +80,7 @@ Shoes.app :title => "My Amazing Calculator", :width => 300, :height => 300 do
     @output.text = @input
   end
 
-  def square_expression
+  def square_root_expression
     @square = Math.sqrt(eval(@input))
     @input = @square
     @output.text = @input
