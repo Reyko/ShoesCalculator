@@ -11,22 +11,18 @@ Shoes.app :title => "My Amazing Calculator", :width => 300, :height => 300 do
         end
       end
 
-
-
-      
-      @special = ["=","C","Power^2","√","log"]
+      @special = ["=","C","x\u00B2","√","log"]
 
       @special.each do |item|
 
           button item do
 
               case item
-
                 when "="
                   eval_expression
                 when "C" 
                   del_expression
-                when "Power^2" 
+                when "x\u00B2" 
                   pow_expression
                 when "√" 
                   square_expression
@@ -36,27 +32,6 @@ Shoes.app :title => "My Amazing Calculator", :width => 300, :height => 300 do
           end
       end
 
-      
-      
-      # button "=" do
-      #   eval_expression
-      # end
-
-      # button "C" do
-      #   del_expression
-      # end
-
-      # button "Power^2" do
-      #   pow_expression
-      # end
-
-      # button "√" do
-      #   square_expression
-      # end
-
-      # button "log" do
-      #     log_expression
-      # end
     end
     
   end
